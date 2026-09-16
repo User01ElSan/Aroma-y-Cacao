@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Digital | Aroma & Cacao</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Aroma & Cacao</a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carta.html" class="active">Carta Digital</a></li>
+        <li><a href="reservas.html">Reservas & Pedidos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 style="text-align: center; margin-bottom: 2rem;">Menú Interactivo</h1>
+
+    <div class="grid-cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Espresso Origen Cusco">
+        <div class="card-body">
+          <h3 class="card-title">Espresso Origen Cusco</h3>
+          <p>Notas acentuadas a chocolate amargo y frutos secos.</p>
+          <div class="card-price">S/ 9.50</div>
+          <button class="btn" style="margin-top: 1rem;" onclick="addToCart('Espresso Origen Cusco', 9.50)">Agregar al Pedido</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" alt="Capuccino Cajamarca">
+        <div class="card-body">
+          <h3 class="card-title">Cappuccino Cajamarca</h3>
+          <p>Espresso de especialidad con leche cremada y un toque de cacao.</p>
+          <div class="card-price">S/ 12.00</div>
+          <button class="btn" style="margin-top: 1rem;" onclick="addToCart('Cappuccino Cajamarca', 12.00)">Agregar al Pedido</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Brownie Vegano Gluten-Free">
+        <div class="card-body">
+          <h3 class="card-title">Brownie Artesanal (Vegano/GF)</h3>
+          <p>Elaborado con 70% cacao orgánico y harina de almendras.</p>
+          <div class="card-price">S/ 11.00</div>
+          <button class="btn" style="margin-top: 1rem;" onclick="addToCart('Brownie Artesanal', 11.00)">Agregar al Pedido</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
+  </footer>
+  <script src="js/cart.js"></script>
+</body>
+</html>

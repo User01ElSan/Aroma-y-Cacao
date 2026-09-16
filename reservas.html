@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas & Pedidos | Aroma & Cacao</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Aroma & Cacao</a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carta.html">Carta Digital</a></li>
+        <li><a href="reservas.html" class="active">Reservas & Pedidos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 style="text-align: center; margin-bottom: 2rem;">Reserva tu Mesa / Solicita Delivery</h1>
+
+    <form id="reservationForm">
+      <div class="form-group">
+        <label for="tipo">Tipo de Solicitud:</label>
+        <select id="tipo" required>
+          <option value="reserva">Reserva de Mesa en Local</option>
+          <option value="delivery">Pedido Delivery</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" required placeholder="Ej. Eliseo Sandoval">
+      </div>
+      <div class="form-group">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" required>
+      </div>
+      <div class="form-group">
+        <label for="personas">Número de Personas / Detalle Pedido:</label>
+        <input type="number" id="personas" min="1" max="10" placeholder="Cantidad de personas">
+      </div>
+      <button type="submit" class="btn" style="width: 100%;">Confirmar Solicitud</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Solicitud registrada con éxito en el sistema relacional!');
+    });
+  </script>
+</body>
+</html>

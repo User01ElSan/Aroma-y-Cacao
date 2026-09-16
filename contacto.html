@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto & Registro | Aroma & Cacao</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Aroma & Cacao</a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carta.html">Carta Digital</a></li>
+        <li><a href="reservas.html">Reservas & Pedidos</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 style="text-align: center; margin-bottom: 2rem;">Únete al Club de Beneficios</h1>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="c_nombre">Nombre:</label>
+        <input type="text" id="c_nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" required placeholder="ejemplo@certus.edu.pe">
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Consulta o Mensaje:</label>
+        <textarea id="mensaje" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn" style="width: 100%;">Suscribirse / Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
