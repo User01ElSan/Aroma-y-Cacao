@@ -1,51 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aroma & Cacao | Cafetería de Especialidad</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="manifest" href="public/manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma & Cacao | Cafetería de Especialidad</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="public/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" class="logo">Aroma & Cacao</a>
-      <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="carta.html">Carta Digital</a></li>
-        <li><a href="reservas.html">Reservas & Pedidos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Café de Origen y Repostería Artesanal</h1>
-      <p>Disfruta de la mejor selección de granos peruanos de Cusco y Cajamarca.</p>
-      <a href="carta.html" class="btn">Ver Carta Digital</a>
+    <!-- Navegación -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mug-hot"></i> Aroma & Cacao
+        </div>
+        <nav>
+            <a href="/" class="active">Inicio</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/carta">Carta Digital</a>
+            <a href="/reservas">Reservas & Pedidos</a>
+            <a href="/contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-banner" style="padding: 6rem 2rem;">
+        <div class="banner-content">
+            <h1>Café de Origen y Repostería Artesanal</h1>
+            <p>Disfruta de la mejor selección de granos peruanos de Cusco y Cajamarca, tostados a la perfección.</p>
+            <br>
+            <a href="/carta" class="checkout-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 12px 30px;">
+                <i class="fa-solid fa-book-open"></i> Ver Carta Digital
+            </a>
+        </div>
     </section>
 
-    <section>
-      <h2 style="text-align:center; margin-bottom: 1.5rem;">Conoce Nuestra Experiencia</h2>
-      <!-- Video Embebido / Publicitario -->
-      <div style="text-align:center; margin-bottom: 2rem;">
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Aroma & Cacao Video" frameborder="0" allowfullscreen style="max-width: 800px; border-radius: 8px;"></iframe>
-      </div>
+    <!-- Sección Destacados -->
+    <section class="menu-section">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-dark);">Especialidades de la Casa</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=800&auto=format&fit=crop" alt="Espresso">
+                    <span class="badge badge-popular">Favorito</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Café de Origen</span>
+                    <h3>Espresso Cusco</h3>
+                    <p class="description">Notas acentuadas a chocolate amargo y frutos secos.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 9.50</span>
+                        <a href="/carta" class="add-btn" style="text-decoration: none;">Ordenar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop" alt="Brownie">
+                    <span class="badge badge-vegan">Vegano & GF</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Repostería</span>
+                    <h3>Brownie Cacao 70%</h3>
+                    <p class="description">Elaborado con chocolate de Quillabamba y harina de almendras.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 11.00</span>
+                        <a href="/carta" class="add-btn" style="text-decoration: none;">Ordenar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop" alt="Cold Brew">
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Bebida Fría</span>
+                    <h3>Iced Cold Brew Cacao</h3>
+                    <p class="description">Extracción en frío durante 18 horas infundida con cascarilla de cacao.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 13.50</span>
+                        <a href="/carta" class="add-btn" style="text-decoration: none;">Ordenar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <div class="chatbot-widget" onclick="alert('Asistente IA Aroma & Cacao: ¡Hola! ¿Deseas ayuda con tu pedido o reserva?')">
-    🤖 <span>Chat con IA</span>
-  </div>
+    <!-- Sección Video de la Experiencia -->
+    <section style="background: #EFEBE4; padding: 4rem 2rem; text-align: center;">
+        <h2 style="color: var(--primary-dark); margin-bottom: 1rem;">Conoce Nuestra Experiencia</h2>
+        <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 2rem auto;">Descubre el proceso desde el grano a la taza y nuestro compromiso con los productores locales.</p>
+        <div style="max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
-  </footer>
+    <!-- Chatbot con IA (Widget Flotante) -->
+    <div class="floating-cart-btn" style="left: 30px; right: auto; background-color: var(--primary-dark);" onclick="alert('Asistente Virtual Aroma & Cacao: ¡Hola! ¿En qué puedo ayudarte hoy?')">
+        <i class="fa-solid fa-robot"></i>
+    </div>
 
-  <script src="js/main.js"></script>
-  <script src="js/cart.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><i class="fa-solid fa-mug-hot"></i> Aroma & Cacao</h3>
+                <p>Cafetería de especialidad y repostería artesanal revalorizando los mejores granos de café y cacao del Perú.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="/carta">Carta Digital</a></li>
+                    <li><a href="/reservas">Reservas & Pedidos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto & Horario</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Av. Larco 456, Miraflores, Lima</p>
+                <p><i class="fa-solid fa-clock"></i> Lun - Dom: 7:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados | Proyecto CERTUS</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

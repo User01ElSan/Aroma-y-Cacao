@@ -1,63 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservas & Pedidos | Aroma & Cacao</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas & Pedidos | Aroma & Cacao</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<script src="js/main.js"></script>
-<script src="js/cart.js"></script>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" class="logo">Aroma & Cacao</a>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="carta.html">Carta Digital</a></li>
-        <li><a href="reservas.html" class="active">Reservas & Pedidos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="container">
-    <h1 style="text-align: center; margin-bottom: 2rem;">Reserva tu Mesa / Solicita Delivery</h1>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mug-hot"></i> Aroma & Cacao
+        </div>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/carta">Carta Digital</a>
+            <a href="/reservas" class="active">Reservas & Pedidos</a>
+            <a href="/contacto">Contacto</a>
+        </nav>
+    </header>
 
-    <form id="reservationForm">
-      <div class="form-group">
-        <label for="tipo">Tipo de Solicitud:</label>
-        <select id="tipo" required>
-          <option value="reserva">Reserva de Mesa en Local</option>
-          <option value="delivery">Pedido Delivery</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="nombre">Nombre Completo:</label>
-        <input type="text" id="nombre" required placeholder="Ej. Eliseo Sandoval">
-      </div>
-      <div class="form-group">
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" required>
-      </div>
-      <div class="form-group">
-        <label for="personas">Número de Personas / Detalle Pedido:</label>
-        <input type="number" id="personas" min="1" max="10" placeholder="Cantidad de personas">
-      </div>
-      <button type="submit" class="btn" style="width: 100%;">Confirmar Solicitud</button>
-    </form>
-  </main>
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Reserva tu Mesa o Solicita Delivery</h1>
+            <p>Asegura tu lugar en nuestro local o recibe tu café favorito recién preparado en la puerta de tu casa.</p>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
-  </footer>
+    <main class="menu-section" style="max-width: 600px;">
+        <div class="product-card" style="padding: 2.5rem;">
+            <form id="reserva-form">
+                <div style="margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.5rem; font-weight:600; color: var(--primary-dark);">Tipo de Solicitud:</label>
+                    <select style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #DDD; font-size: 1rem;">
+                        <option>Reserva de Mesa en Local</option>
+                        <option>Pedido Delivery A Domicilio</option>
+                        <option>Take Away (Para Llevar)</option>
+                    </select>
+                </div>
 
-  <script>
-    document.getElementById('reservationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('¡Solicitud registrada con éxito en el sistema relacional!');
-    });
-  </script>
+                <div style="margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.5rem; font-weight:600; color: var(--primary-dark);">Nombre Completo:</label>
+                    <input type="text" placeholder="Ej. Eliseo Sandoval" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #DDD; font-size: 1rem;" required>
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.5rem; font-weight:600; color: var(--primary-dark);">Fecha & Hora:</label>
+                    <input type="datetime-local" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #DDD; font-size: 1rem;" required>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display:block; margin-bottom: 0.5rem; font-weight:600; color: var(--primary-dark);">Número de Personas / Detalle:</label>
+                    <input type="text" placeholder="Ej. Mesa para 4 personas" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #DDD; font-size: 1rem;" required>
+                </div>
+
+                <button type="submit" class="checkout-btn"><i class="fa-solid fa-paper-plane"></i> Confirmar Solicitud</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><i class="fa-solid fa-mug-hot"></i> Aroma & Cacao</h3>
+                <p>Cafetería de especialidad y repostería artesanal revalorizando los mejores granos de café y cacao del Perú.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="/carta">Carta Digital</a></li>
+                    <li><a href="/reservas">Reservas & Pedidos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto & Horario</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Av. Larco 456, Miraflores, Lima</p>
+                <p><i class="fa-solid fa-clock"></i> Lun - Dom: 7:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados | Proyecto CERTUS</p>
+        </div>
+    </footer>
+<script src="js/main.js"></script>
 </body>
 </html>

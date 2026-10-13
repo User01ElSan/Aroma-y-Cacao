@@ -1,54 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nosotros | Aroma & Cacao</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Aroma & Cacao</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<script src="js/main.js"></script>
-<script src="js/cart.js"></script>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" class="logo">Aroma & Cacao</a>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html" class="active">Nosotros</a></li>
-        <li><a href="carta.html">Carta Digital</a></li>
-        <li><a href="reservas.html">Reservas & Pedidos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="container">
-    <h1 style="text-align: center; margin-bottom: 2rem;">Nuestra Historia & Compromiso</h1>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mug-hot"></i> Aroma & Cacao
+        </div>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/nosotros" class="active">Nosotros</a>
+            <a href="/carta">Carta Digital</a>
+            <a href="/reservas">Reservas & Pedidos</a>
+            <a href="/contacto">Contacto</a>
+        </nav>
+    </header>
 
-    <div class="grid-cards">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Misión</h3>
-          <p>Ofrecer una experiencia gastronómica única basada en cafés de especialidad peruanos y repostería artesanal de alta calidad, promoviendo el comercio justo y directo con nuestros agricultores locales.</p>
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Nuestra Historia & Compromiso</h1>
+            <p>Pasión por el café de especialidad y la revalorización del cacao nativo peruano.</p>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Visión</h3>
-          <p>Ser reconocidos a nivel nacional como la cadena referente en la revalorización del cacao y café peruano, integrando innovación tecnológica y sostenibilidad.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Compromiso Social</h3>
-          <p>Trabajamos de la mano con comunidades cafetaleras de Cusco y Cajamarca, asegurando un pago justo y apoyando el desarrollo de agricultura orgánica sostenible.</p>
-        </div>
-      </div>
-    </div>
-  </main>
+    </section>
 
-  <footer>
-    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
-  </footer>
+    <main class="menu-section">
+        <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            
+            <div class="product-card" style="padding: 2rem; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--accent-terracota); margin-bottom: 1rem;">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem; color: var(--primary-dark);">Misión</h3>
+                <p style="color: var(--text-light);">Ofrecer una experiencia gastronómica única basada en cafés de especialidad peruanos y repostería artesanal de alta calidad, promoviendo el comercio justo con nuestros agricultores locales.</p>
+            </div>
+
+            <div class="product-card" style="padding: 2rem; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--accent-terracota); margin-bottom: 1rem;">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem; color: var(--primary-dark);">Visión</h3>
+                <p style="color: var(--text-light);">Ser reconocidos como la cadena referente en la revalorización del cacao y café peruano, integrando innovación tecnológica, sostenibilidad ambiental y servicio excepcional.</p>
+            </div>
+
+            <div class="product-card" style="padding: 2rem; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--accent-terracota); margin-bottom: 1rem;">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem; color: var(--primary-dark);">Compromiso Social</h3>
+                <p style="color: var(--text-light);">Trabajamos de la mano con comunidades cafetaleras de Cusco y Cajamarca, asegurando un pago justo y apoyando el desarrollo de agricultura orgánica sostenible.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><i class="fa-solid fa-mug-hot"></i> Aroma & Cacao</h3>
+                <p>Cafetería de especialidad y repostería artesanal revalorizando los mejores granos de café y cacao del Perú.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="/carta">Carta Digital</a></li>
+                    <li><a href="/reservas">Reservas & Pedidos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto & Horario</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Av. Larco 456, Miraflores, Lima</p>
+                <p><i class="fa-solid fa-clock"></i> Lun - Dom: 7:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados | Proyecto CERTUS</p>
+        </div>
+    </footer>
+
 </body>
 </html>
