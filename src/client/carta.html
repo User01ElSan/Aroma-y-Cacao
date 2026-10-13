@@ -1,65 +1,259 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta Digital | Aroma & Cacao</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Digital | Aroma & Cacao</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="public/manifest.json">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" class="logo">Aroma & Cacao</a>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="carta.html" class="active">Carta Digital</a></li>
-        <li><a href="reservas.html">Reservas & Pedidos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="container">
-    <h1 style="text-align: center; margin-bottom: 2rem;">Menú Interactivo</h1>
-
-    <div class="grid-cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Espresso Origen Cusco">
-        <div class="card-body">
-          <h3 class="card-title">Espresso Origen Cusco</h3>
-          <p>Notas acentuadas a chocolate amargo y frutos secos.</p>
-          <div class="card-price">S/ 9.50</div>
-          <button class="btn" style="margin-top: 1rem;" onclick="addToCart('Espresso Origen Cusco', 9.50)">Agregar al Pedido</button>
+    <!-- Navegación Principal -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mug-hot"></i> Aroma & Cacao
         </div>
-      </div>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/carta" class="active">Carta Digital</a>
+            <a href="/reservas">Reservas & Pedidos</a>
+            <a href="/contacto">Contacto</a>
+        </nav>
+    </header>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" alt="Capuccino Cajamarca">
-        <div class="card-body">
-          <h3 class="card-title">Cappuccino Cajamarca</h3>
-          <p>Espresso de especialidad con leche cremada y un toque de cacao.</p>
-          <div class="card-price">S/ 12.00</div>
-          <button class="btn" style="margin-top: 1rem;" onclick="addToCart('Cappuccino Cajamarca', 12.00)">Agregar al Pedido</button>
+    <!-- Header Banner de la Carta -->
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Nuestra Carta Digital & Menú de Especialidad</h1>
+            <p>Granos seleccionados de Cusco y Cajamarca, acompañados de repostería artesanal recién horneada.</p>
         </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Brownie Vegano Gluten-Free">
-        <div class="card-body">
-          <h3 class="card-title">Brownie Artesanal (Vegano/GF)</h3>
-          <p>Elaborado con 70% cacao orgánico y harina de almendras.</p>
-          <div class="card-price">S/ 11.00</div>
-          <button class="btn" style="margin-top: 1rem;" onclick="addToCart('Brownie Artesanal', 11.00)">Agregar al Pedido</button>
+    <!-- Filtros por Categoría -->
+    <section class="menu-filters-container">
+        <button class="filter-btn active" onclick="filterMenu('todos')">Todos los Productos</button>
+        <button class="filter-btn" onclick="filterMenu('cafe')"><i class="fa-solid fa-mug-saucer"></i> Cafés de Especialidad</button>
+        <button class="filter-btn" onclick="filterMenu('frio')"><i class="fa-solid fa-glass-water"></i> Bebidas Frías</button>
+        <button class="filter-btn" onclick="filterMenu('reposteria')"><i class="fa-solid fa-cake-candles"></i> Repostería Artesanal</button>
+        <button class="filter-btn" onclick="filterMenu('vegano')"><i class="fa-solid fa-leaf"></i> Vegano & Gluten Free</button>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <main class="menu-section">
+        <div class="product-grid">
+
+            <!-- Producto 1 -->
+            <div class="product-card" data-category="cafe">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=800&auto=format&fit=crop" alt="Espresso Origen Cusco">
+                    <span class="badge badge-popular">Más Vendido</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Café de Especialidad</span>
+                    <h3>Espresso Origen Cusco</h3>
+                    <p class="description">Notas acentuadas a chocolate amargo, avellana tostada y frutos secos. Elaborado con café de la Convención.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 9.50</span>
+                        <button class="add-btn" onclick="addToCart('Espresso Origen Cusco', 9.50)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card" data-category="cafe">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=800&auto=format&fit=crop" alt="Cappuccino Cajamarca">
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Café de Especialidad</span>
+                    <h3>Cappuccino Cajamarca</h3>
+                    <p class="description">Espresso de especialidad con leche texturizada, crema sedosa y una delicada capa de cacao orgánico espolvoreado.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 12.00</span>
+                        <button class="add-btn" onclick="addToCart('Cappuccino Cajamarca', 12.00)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card" data-category="reposteria vegano">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop" alt="Brownie Cacao 70%">
+                    <span class="badge badge-vegan">Vegano & GF</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Repostería Artesanal</span>
+                    <h3>Brownie Cacao Orgánico 70%</h3>
+                    <p class="description">Elaborado con chocolate de origen Quillabamba, harina de almendras y aceite de coco. 100% libre de gluten.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 11.00</span>
+                        <button class="add-btn" onclick="addToCart('Brownie Cacao 70%', 11.00)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-card" data-category="frio">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop" alt="Iced Brew Cacao Nitro">
+                    <span class="badge badge-popular">Especialidad</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Bebida Fría</span>
+                    <h3>Iced Cold Brew Cacao</h3>
+                    <p class="description">Extracción en frío durante 18 horas infundida con cascarilla de cacao orgánico y toque cítrico de naranja dulce.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 13.50</span>
+                        <button class="add-btn" onclick="addToCart('Iced Cold Brew Cacao', 13.50)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="product-card" data-category="reposteria">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop" alt="Croissant Artesanal">
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Panadería Artesanal</span>
+                    <h3>Croissant de Mantequilla</h3>
+                    <p class="description">Croissant hojaldrado artesanalmente con mantequilla de purita leche. Crujiente por fuera y suave por dentro.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 8.50</span>
+                        <button class="add-btn" onclick="addToCart('Croissant Artesanal', 8.50)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card" data-category="reposteria">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Torta de Chocolate Tradicional">
+                    <span class="badge badge-popular">Favorito</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Repostería Artesanal</span>
+                    <h3>Torta Húmeda de Cacao</h3>
+                    <p class="description">Bizcocho de chocolate bañado en fudge artesanal de cacao orgánico peruano y manjar blanco casero.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 14.00</span>
+                        <button class="add-btn" onclick="addToCart('Torta Húmeda de Cacao', 14.00)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="product-card" data-category="cafe frot">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop" alt="Latte Vainilla Orgánica">
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Café de Especialidad</span>
+                    <h3>Latte Vainilla y Cardamomo</h3>
+                    <p class="description">Espresso doble combinado con leche cremosa, infusión natural de vainilla amazónica y un toque aromático de cardamomo.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 13.00</span>
+                        <button class="add-btn" onclick="addToCart('Latte Vainilla y Cardamomo', 13.00)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="product-card" data-category="frio vegano">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1553787499-6f9133860278?q=80&w=800&auto=format&fit=crop" alt="Frappé Cacao Menta">
+                    <span class="badge badge-vegan">100% Vegano</span>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">Bebida Fría</span>
+                    <h3>Frappé Cacao & Leche de Almendras</h3>
+                    <p class="description">Batido helado a base de nibs de cacao puro, leche vegetal de almendras, plátano y endulzado con panela orgánica.</p>
+                    <div class="card-footer">
+                        <span class="price">S/ 15.00</span>
+                        <button class="add-btn" onclick="addToCart('Frappé Cacao Vegano', 15.00)"><i class="fa-solid fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
+    </main>
+
+    <!-- Botón Flotante del Carrito -->
+    <div class="floating-cart-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados.</p>
-  </footer>
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
+    <!-- Modulo Modal / Offcanvas del Carrito -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2><i class="fa-solid fa-bag-shopping"></i> Mi Pedido</h2>
+                <span class="close-cart" onclick="toggleCart()">&times;</span>
+            </div>
+            <div id="cart-items-container" class="cart-items">
+                <p class="empty-cart-msg">Tu carrito está vacío actualmente.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total a pagar:</span>
+                    <strong id="cart-total">S/ 0.00</strong>
+                </div>
+                <button class="checkout-btn" onclick="processCheckout()"><i class="fa-solid fa-credit-card"></i> Procesar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Corporativo -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><i class="fa-solid fa-mug-hot"></i> Aroma & Cacao</h3>
+                <p>Cafetería de especialidad y repostería artesanal revalorizando los mejores granos de café y cacao del Perú.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="/carta">Carta Digital</a></li>
+                    <li><a href="/reservas">Reservas & Pedidos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto & Horario</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Av. Larco 456, Miraflores, Lima</p>
+                <p><i class="fa-solid fa-clock"></i> Lun - Dom: 7:00 AM - 10:00 PM</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@aromaycacao.pe</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aroma & Cacao - Todos los derechos reservados | Proyecto CERTUS</p>
+        </div>
+    </footer>
+
+    <!-- Scripts del Carrito y Filtros -->
+    <script>
+        function filterMenu(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'todos' || card.dataset.category.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
