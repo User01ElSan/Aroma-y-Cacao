@@ -1,23 +1,29 @@
 const mongoose = require('mongoose');
-const path = require('path');
-
-require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const connectDB = async () => {
-  try {
-    const connStr = process.env.MONGO_URI;
-    if (!connStr) throw new Error("No se encontró MONGO_URI en el archivo .env");
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, {
+            // Mantener vivos los sockets e impedir que Atlas o el SO los cierren por inactividad
+            maxPoolSize: 10,                 // Mantiene un pool de hasta 10 conexiones activas
+            serverSelectionTimeoutMS: 5000, // Tiempo de espera si el servidor no responde
+            socketTimeoutMS: 45000,         // Cierra sockets inactivos después de 45s de forma limpia
+            family: 4                       // Fuerza IPv4 para evitar demoras por resoluciones IPv6
+        });
 
-    console.log('Conectando a MongoDB Atlas...');
-    await mongoose.connect(connStr);
-    
-    console.log('====================================================');
-    console.log('¡ÉXITO: Proyecto Aroma & Cacao conectado a MongoDB!');
-    console.log('====================================================');
-  } catch (error) {
-    console.error('Error de conexión:', error.message);
-  }
+        console.log('¡ÉXITO: Conectado a MongoDB Atlas!');
+    } catch (error) {
+        console.error('Error al conectar a MongoDB:', error.message);
+        process.exit(1);
+    }
 };
 
-connectDB();
+// Escuchar eventos de desconexión para reconectar automáticamente
+mongoose.connection.on('disconnected', () => {
+    console.log('Conexión perdida con MongoDB Atlas. Intentando reconectar...');
+});
+
+mongoose.connection.on('reconnected', () => {
+    console.log('¡Reconectado con éxito a MongoDB Atlas!');
+});
+
 module.exports = connectDB;
