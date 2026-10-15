@@ -1,13 +1,20 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
-            // Mantener vivos los sockets e impedir que Atlas o el SO los cierren por inactividad
-            maxPoolSize: 10,                 // Mantiene un pool de hasta 10 conexiones activas
-            serverSelectionTimeoutMS: 5000, // Tiempo de espera si el servidor no responde
-            socketTimeoutMS: 45000,         // Cierra sockets inactivos después de 45s de forma limpia
-            family: 4                       // Fuerza IPv4 para evitar demoras por resoluciones IPv6
+        // Lee directamente MONGO_URI de tu archivo .env
+        const mongoURI = process.env.MONGO_URI;
+
+        if (!mongoURI) {
+            throw new Error("No se encontró la variable MONGO_URI en el archivo .env");
+        }
+
+        await mongoose.connect(mongoURI, {
+            maxPoolSize: 10,
+            serverSelectionTimeoutMS: 15000,
+            socketTimeoutMS: 45000,
+            family: 4
         });
 
         console.log('¡ÉXITO: Conectado a MongoDB Atlas!');
@@ -16,14 +23,5 @@ const connectDB = async () => {
         process.exit(1);
     }
 };
-
-// Escuchar eventos de desconexión para reconectar automáticamente
-mongoose.connection.on('disconnected', () => {
-    console.log('Conexión perdida con MongoDB Atlas. Intentando reconectar...');
-});
-
-mongoose.connection.on('reconnected', () => {
-    console.log('¡Reconectado con éxito a MongoDB Atlas!');
-});
 
 module.exports = connectDB;

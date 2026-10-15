@@ -11,10 +11,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 
-// Conexión a MongoDB Atlas
-connectDB();
-
-// Servir archivos estáticos del cliente (HTML, CSS, JS, PWA)
+// Servir archivos estáticos del cliente
 app.use(express.static(path.join(__dirname, 'src/client')));
 
 // Enrutamiento para las 5 páginas principales
@@ -24,8 +21,14 @@ app.get('/carta', (req, res) => res.sendFile(path.join(__dirname, 'src/client/ca
 app.get('/reservas', (req, res) => res.sendFile(path.join(__dirname, 'src/client/reservas.html')));
 app.get('/contacto', (req, res) => res.sendFile(path.join(__dirname, 'src/client/contacto.html')));
 
-// Puerto de ejecución
+// Puerto de ejecución y arranque de Express
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Servidor ejecutándose en el puerto ${PORT}`);
+    console.log(`=================================`);
+    console.log(`¡Servidor ejecutándose en el puerto ${PORT}!`);
+    console.log(`Páginas listas en http://localhost:${PORT}`);
+    console.log(`=================================`);
 });
+
+// Conexión asíncrona a MongoDB Atlas (en segundo plano)
+connectDB().catch(err => console.log('Aviso BD (Modo Offline/Red restringida):', err.message));
