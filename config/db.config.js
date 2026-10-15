@@ -20,7 +20,6 @@ const connectDB = async () => {
         console.log('¡ÉXITO: Conectado a MongoDB Atlas!');
     } catch (error) {
         console.error('Error al conectar a MongoDB:', error.message);
-        process.exit(1);
     }
 };
 
